@@ -41,7 +41,7 @@ test2:
 	git submodule init
 	git submodule update
 	cp -r uCore-RV-64-test uCore-RV-64-lab/user
-	cd uCore-RV-64-lab && git checkout ch2 && make run
+	cd uCore-RV-64-lab && git checkout ch2 && make test BASE=1
 	
 test3:
 	git submodule init
