@@ -2,7 +2,7 @@ DOCKER_NAME ?= rust-os-camp-2022
 DIR := workplace
 .PHONY: docker build_docker
 
-run：
+run:
 	cd uCore-RV-64-lab
 	git checkout ch1
 	make run
@@ -29,6 +29,8 @@ setup:
 	cp -r reports ${DIR}
 	cp rust-toolchain ${DIR}
 #	export PATH=${PATH}:${HOME}/qemu-7.0.0:${HOME}/qemu-7.0.0/riscv64-softmmu
+
+
 
 test1: setup
 	cp -r os1 ${DIR}/os
