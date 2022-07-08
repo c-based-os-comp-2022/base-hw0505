@@ -5,11 +5,8 @@ DIR := workplace
 run:
 	git submodule init
 	git submodule update
-	cd uCore-RV-64-lab
-	echo "uCore-RV-64-lab"
-	ls
-	git checkout ch1
-	make run
+	cd uCore-RV-64-lab && git checkout ch1 && make run
+
 
 test: test3 test4 test5 test6 test7 test8
 
