@@ -3,7 +3,11 @@ DIR := workplace
 .PHONY: docker build_docker
 
 run:
+	git submodule init
+	git submodule update
 	cd uCore-RV-64-lab
+	echo "uCore-RV-64-lab"
+	ls
 	git checkout ch1
 	make run
 
