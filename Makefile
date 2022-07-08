@@ -2,6 +2,10 @@ DOCKER_NAME ?= rust-os-camp-2022
 DIR := workplace
 .PHONY: docker build_docker
 
+run：
+	cd uCore-RV-64-lab
+	git checkout ch1
+	make run
 
 test: test3 test4 test5 test6 test7 test8
 
