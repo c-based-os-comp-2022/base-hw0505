@@ -23,8 +23,8 @@ jobs:
           sudo tar xzf riscv64-linux-musl-cross.tgz
       - name: Config Riscv Path   
         run: |
-          sudo ln -s $$HOME/riscv64-unknown-elf-gcc/bin/* /usr/bin/
-          sudo ln -s $$HOME/riscv64-linux-musl-cross/bin/* /usr/bin/
+          sudo ln -s $HOME/riscv64-unknown-elf-gcc/bin/* /usr/bin/
+          sudo ln -s $HOME/riscv64-linux-musl-cross/bin/* /usr/bin/
       - name: Install compile env
         run: |
           sudo apt install -y cmake
@@ -54,9 +54,9 @@ jobs:
           qemu-system-riscv64 --version
       - name: Config Path
         run: |
-          sudo echo export PATH=\"\$${HOME}/qemu-5.0.0:\$$PATH\" >> ~/.bashrc
-          sudo echo export PATH=\"\$${HOME}/qemu-5.0.0/riscv64-softmmu:\$$PATH\" >> ~/.bashrc
-          sudo echo export PATH=\"\$${HOME}/qemu-5.0.0/riscv64-linux-user:\$$PATH\" >> ~/.bashrc
+          sudo echo export PATH=\"\${HOME}/qemu-5.0.0:\$PATH\" >> ~/.bashrc
+          sudo echo export PATH=\"\${HOME}/qemu-5.0.0/riscv64-softmmu:\$PATH\" >> ~/.bashrc
+          sudo echo export PATH=\"\${HOME}/qemu-5.0.0/riscv64-linux-user:\$PATH\" >> ~/.bashrc
           source ~/.bashrc
           qemu-system-riscv64 --version
           qemu-riscv64 --version
