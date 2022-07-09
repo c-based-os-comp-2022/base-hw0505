@@ -16,11 +16,10 @@ jobs:
       - name: Install  Riscv Toolchain
         run: |
           cd ${HOME}
-          sudo wget https://static.dev.sifive.com/dev-tools/freedom-tools/v2020.08/riscv64-unknown-elf-gcc-10.1.0-2020.08.2-x86_64-linux-ubuntu14.tar.gz
-          sudo tar xzf riscv64-unknown-elf-gcc-10.1.0-2020.08.2-x86_64-linux-ubuntu14.tar.gz
-          sudo mv riscv64-unknown-elf-gcc-10.1.0-2020.08.2-x86_64-linux-ubuntu14 riscv64-unknown-elf-gcc
-          sudo wget -O riscv64-linux-musl-cross.tgz https://cloud.tsinghua.edu.cn/f/b07bac9bcfa14f1dae66/?dl=1
-          sudo tar xzf riscv64-linux-musl-cross.tgz
+          cd ${HOME} && sudo tar xzf riscv64-unknown-elf-gcc-10.1.0-2020.08.2-x86_64-linux-ubuntu14.tar.gz
+          cd ${HOME} && sudo mv riscv64-unknown-elf-gcc-10.1.0-2020.08.2-x86_64-linux-ubuntu14 riscv64-unknown-elf-gcc
+          cd ${HOME} && sudo wget -O riscv64-linux-musl-cross.tgz https://cloud.tsinghua.edu.cn/f/b07bac9bcfa14f1dae66/?dl=1
+          cd ${HOME} && sudo tar xzf riscv64-linux-musl-cross.tgz
       - name: Config Riscv Path   
         run: |
           sudo ln -s $HOME/riscv64-unknown-elf-gcc/bin/* /usr/bin/
@@ -41,12 +40,11 @@ jobs:
       - name: Install QEMU
         run: |
           if [ ! -d qemu-5.0.0 ]; then
-            cd ${HOME}
-            sudo wget https://download.qemu.org/qemu-5.0.0.tar.xz
-            sudo tar xJf qemu-5.0.0.tar.xz
-            cd qemu-5.0.0
-            sudo ./configure --target-list=riscv64-softmmu,riscv64-linux-user
-            sudo make -j$(nproc)
+            cd ${HOME} && sudo wget https://download.qemu.org/qemu-5.0.0.tar.xz
+            cd ${HOME} && sudo tar xJf qemu-5.0.0.tar.xz
+            cd ${HOME}/qemu-5.0.0 && sudo ./configure --target-list=riscv64-softmmu,riscv64-linux-user
+            cd ${HOME}/qemu-5.0.0 && sudo make -j$(nproc)
+            cd ${HOME}/qemu-5.0.0 && sudo make install
           else
             cd ${HOME}/qemu-5.0.0
           fi
