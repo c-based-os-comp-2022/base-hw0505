@@ -46,7 +46,7 @@ jobs:
             sudo tar xJf qemu-5.0.0.tar.xz
             cd qemu-5.0.0
             sudo ./configure --target-list=riscv64-softmmu,riscv64-linux-user
-            sudo make -j$$(nproc)
+            sudo make -j$(nproc)
           else
             cd ${HOME}/qemu-5.0.0
           fi
